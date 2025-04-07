@@ -1,0 +1,55 @@
+// importing fonts
+
+@font-face {
+  font-family: Gilroy-Medium;
+  src: url("/fonts/Gilroy-Medium.ttf");
+}
+
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url("/fonts/Gilroy-Regular.ttf");
+}
+
+@font-face {
+  font-family: Dharma;
+  src: url("/fonts/DharmaGothicE-Bold.ttf");
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url("/fonts/OpenSans-Regular.ttf");
+}
+
+// CSS reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+// Variables
+:root {
+  --body-bg: #e5e5e5;
+  --text-color: #322153;
+
+  --primary-color: #34cb79;
+  --primary-color-dark: #2fa36c;
+
+
+  --default-padding: 1.5rem 5vw;
+  --default-margin: 1.5rem 5vw;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg: #e5e5e5;
+  }
+}
