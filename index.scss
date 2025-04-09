@@ -1,55 +1,107 @@
-// importing fonts
+// Variables
+
+:root {
+  /* Light mode (default) */
+  --body-bg: #e5e5e5;
+  --card-bg: white;
+  --active-elem-bg: white;
+
+  --text-color: #322153;
+
+  --border-std: black;
+
+
+  --primary-color: #34cb79;
+  --primary-color-dark: #2fa36c;
+
+  --default-padding: 1.5rem 5vw;
+  --default-margin: 1.5rem 5vw;
+
+  --transition-speed: 0.5s;
+}
+
+/* Dark mode overrides */
+.dark-mode {
+  :root {
+    --body-bg: #121212;
+
+    --card-bg: #1f1f1f;
+
+    --active-elem-bg: gray;
+
+    --text-color: #f1f1f1;
+
+    --border-std: white;
+
+    --primary-color: #00c77b;
+    --primary-color-dark: #00a86b;
+  }
+}
+
+// Fonts
 
 @font-face {
-  font-family: Gilroy-Medium;
+  font-family: "Gilroy-Medium";
   src: url("/fonts/Gilroy-Medium.ttf");
 }
 
 @font-face {
-  font-family: Gilroy-Regular;
+  font-family: "Gilroy-Regular";
   src: url("/fonts/Gilroy-Regular.ttf");
 }
 
 @font-face {
-  font-family: Dharma;
+  font-family: "Dharma";
   src: url("/fonts/DharmaGothicE-Bold.ttf");
 }
 
 @font-face {
-  font-family: OpenSans;
+  font-family: "OpenSans";
   src: url("/fonts/OpenSans-Regular.ttf");
 }
 
-// CSS reset
+// Reset
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  transition: all var(--transition-speed) ease;
+  color: var(--text-color);
 }
+
+// Base Styles
 
 html,
 body {
   width: 100%;
   height: 100%;
+  background-color: var(--body-bg);
+  font-family: Gilroy-Medium;
+  transition: all var(--transition-speed) ease;
 }
 
-// Variables
-:root {
-  --body-bg: #e5e5e5;
-  --text-color: #322153;
-
-  --primary-color: #34cb79;
-  --primary-color-dark: #2fa36c;
-
-
-  --default-padding: 1.5rem 5vw;
-  --default-margin: 1.5rem 5vw;
+.active-elem {
+  background-color: var(--active-elem-bg);
+  border-radius: .5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg: #e5e5e5;
+.toggle-modes {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 1rem;
+  border: 1px dashed var(--border-std);
+  border-radius: 1rem;
+  span {
+    cursor: pointer;
   }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
