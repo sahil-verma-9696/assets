@@ -11,7 +11,50 @@ function watch() {
 watch();
 
 function toggleModes() {
-  const zone = document.querySelector(".toggle-modes");
-  zone.innerHTML = `<span class="active-elm" id="dark" >🌑</span><span class="activeelem" id="light">💡</span><span class="active-elem" id="system" >💻</span>`;
+  const Theme = Object.freeze({
+    DARK: "dark",
+    LIGHT: "light",
+    SYSTEM: "system",
+  });
+
+  const dark = document.querySelector("#dark");
+  const light = document.querySelector("#light");
+  const system = document.querySelector("#system");
+
+  const buttons = [dark, light, system];
+
+  function setActive(button) {
+    buttons.forEach((btn) => btn.classList.remove("active-elem"));
+    button.classList.add("active-elem");
+  }
+
+  function applyTheme(theme) {
+    switch (theme) {
+      case Theme.DARK:
+        document.body.classList.add("dark-mode");
+        setActive(dark);
+        break;
+      case Theme.LIGHT:
+        document.body.classList.remove("dark-mode");
+        setActive(light);
+        break;
+      case Theme.SYSTEM:
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.body.classList.toggle("dark-mode", prefersDark);
+        setActive(system);
+        break;
+    }
+    localStorage.setItem("theme", theme);
+  }
+
+  dark.addEventListener("click", () => applyTheme(Theme.DARK));
+  light.addEventListener("click", () => applyTheme(Theme.LIGHT));
+  system.addEventListener("click", () => applyTheme(Theme.SYSTEM));
+
+  // Apply saved theme on load
+  const saved = localStorage.getItem("theme") || Theme.SYSTEM;
+  applyTheme(saved);
 }
 toggleModes();
