@@ -57,4 +57,25 @@ function toggleModes() {
   const saved = localStorage.getItem("theme") || Theme.SYSTEM;
   applyTheme(saved);
 }
-toggleModes();
+// toggleModes();
+
+async function getFiles() {
+  const response = await fetch("images-files.json");
+  const files = await response.json();
+  console.log(files);
+
+  const images = document.querySelectorAll("img");
+
+  const main = document.querySelector("main");
+
+  files.forEach((path) => {
+    const img = document.createElement("img");
+    img.src = path;
+    img.alt = path.split("/").pop();
+    main.appendChild(img);
+    console.log(img);
+  });
+}
+// getFiles();
+
+// Get-ChildItem -Path .\images -Recurse -File | ForEach-Object { $_.FullName.Replace((Get-Location).Path + "\", "") } | ConvertTo-Json -Compress | Set-Content data.json

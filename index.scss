@@ -1,7 +1,4 @@
-// Variables
-
 :root {
-  /* Light mode (default) */
   --body-bg: #e5e5e5;
   --card-bg: white;
   --active-elem-bg: white;
@@ -9,7 +6,6 @@
   --text-color: #322153;
 
   --border-std: black;
-
 
   --primary-color: #34cb79;
   --primary-color-dark: #2fa36c;
@@ -38,7 +34,10 @@
   }
 }
 
-// Fonts
+@font-face {
+  font-family: Diatype;
+  src: url("./fonts/Diatype.ttf");
+}
 
 @font-face {
   font-family: "Gilroy-Medium";
@@ -60,8 +59,6 @@
   src: url("/fonts/OpenSans-Regular.ttf");
 }
 
-// Reset
-
 * {
   margin: 0;
   padding: 0;
@@ -71,8 +68,6 @@
   transition: all var(--transition-speed) ease;
   color: var(--text-color);
 }
-
-// Base Styles
 
 html,
 body {
@@ -85,23 +80,5 @@ body {
 
 .active-elem {
   background-color: var(--active-elem-bg);
-  border-radius: .5rem;
-}
-
-.toggle-modes {
-  width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.2rem 1rem;
-  border: 1px dashed var(--border-std);
-  border-radius: 1rem;
-  span {
-    cursor: pointer;
-  }
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-radius: 0.5rem;
 }
